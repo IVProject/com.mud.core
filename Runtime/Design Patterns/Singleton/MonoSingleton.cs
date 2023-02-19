@@ -1,11 +1,14 @@
 using System;
 using UnityEngine;
 
-namespace Mud
+namespace Mud.DesignPatterns.Singleton
 {
-    public class Singleton<T> : MonoBehaviour where T : Component
+    /// <summary>
+    /// Typical singleton. The logic is like with burgers, you can eat one, but if you eat a lot of it, it's not good for you.
+    /// </summary>
+    public abstract class MonoSingleton<T> : MonoBehaviour, ISingleton<T> where T : Component
     {
-        private static T m_Instance;
+        private static T _instance;
 
         public static T Instance => GetInstance();
 
@@ -17,11 +20,11 @@ namespace Mud
                 settings = new DontDestroySingletonAttribute(false);
             }
 
-            if (m_Instance == null)
+            if (_instance == null)
             {
-                m_Instance = this as T;
+                _instance = this as T;
                 if (settings.IsDontDestroy)
-                    DontDestroyOnLoad(m_Instance.gameObject);
+                    DontDestroyOnLoad(_instance.gameObject);
             }
             else
             {
@@ -31,29 +34,18 @@ namespace Mud
 
         private static T GetInstance()
         {
-            if (m_Instance == null)
+            if (_instance == null)
             {
-                m_Instance = FindObjectOfType<T>();
-                if (m_Instance == null)
+                _instance = FindObjectOfType<T>();
+                if (_instance == null)
                 {
                     GameObject obj = new GameObject();
                     obj.name = typeof(T).Name;
-                    m_Instance = obj.AddComponent<T>();
+                    _instance = obj.AddComponent<T>();
                 }
             }
 
-            return m_Instance;
-        }
-    }
-
-    [AttributeUsage(AttributeTargets.Class)]
-    public class DontDestroySingletonAttribute : Attribute
-    {
-        public bool IsDontDestroy { get; private set; }
-
-        public DontDestroySingletonAttribute(bool dontDestroy = true)
-        {
-            IsDontDestroy = dontDestroy;
+            return _instance;
         }
     }
 }
