@@ -1,4 +1,4 @@
-﻿namespace Mud.DesignPatterns.Singleton
+﻿namespace Mud.DesignPatterns
 {
     /// <summary>
     /// Typical singleton. The logic is like with burgers, you can eat one, but if you eat a lot of it, it's not good for you.

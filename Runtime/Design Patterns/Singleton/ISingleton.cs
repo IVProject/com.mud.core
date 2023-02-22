@@ -1,4 +1,4 @@
-﻿namespace Mud.DesignPatterns.Singleton
+﻿namespace Mud.DesignPatterns
 {
     public interface ISingleton
     {

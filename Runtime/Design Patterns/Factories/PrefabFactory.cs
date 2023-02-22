@@ -2,7 +2,7 @@
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace Mud.DesignPatterns.Factories
+namespace Mud.DesignPatterns
 {
     public class PrefabFactory<T> : IFactory<Object, T> where T : class
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Mud.DesignPatterns.Factories
+namespace Mud.DesignPatterns
 {
     public interface IFactory
     {

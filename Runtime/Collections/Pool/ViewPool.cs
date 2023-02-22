@@ -1,6 +1,6 @@
 ﻿using System;
 using Mud.ArchitecturalPatterns;
-using Mud.DesignPatterns.Factories;
+using Mud.DesignPatterns;
 
 namespace Mud.Collections.Pool
 {
