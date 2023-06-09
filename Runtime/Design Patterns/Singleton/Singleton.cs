@@ -18,5 +18,10 @@
             
             return _instance;
         }
+
+        public void Dispose()
+        {
+            _instance = null;
+        }
     }
 }

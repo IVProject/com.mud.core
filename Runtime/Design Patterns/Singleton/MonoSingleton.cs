@@ -47,5 +47,12 @@ namespace Mud.DesignPatterns
 
             return _instance;
         }
+
+        public void Dispose()
+        {
+            if(_instance)
+                Destroy(_instance.gameObject);
+            _instance = null;
+        }
     }
 }
