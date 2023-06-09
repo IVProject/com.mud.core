@@ -1,6 +1,8 @@
-﻿namespace Mud.DesignPatterns
+﻿using System;
+
+namespace Mud.DesignPatterns
 {
-    public interface ISingleton
+    public interface ISingleton: IDisposable
     {
         public static object Instance { get; }
     }
